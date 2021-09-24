@@ -1,4 +1,4 @@
-import AccessType from './AccessType';
+import { AccessType } from './AccessType';
 import {
   Entity,
   Column,
@@ -11,7 +11,7 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 
 @Entity('users')
-export default class User {
+export class User {
   @PrimaryColumn()
   public readonly id: string;
 
