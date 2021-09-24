@@ -1,9 +1,9 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity('users')
+@Entity('AccessType')
 export default class AccessType {
   @PrimaryColumn()
-  public readonly id: number;
+  public id: number;
 
-  public readonly name: string;
+  public name: string;
 }
