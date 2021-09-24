@@ -2,12 +2,15 @@ import { IUserDto } from './../../dto/IUserDto';
 import { IUserRepository } from '../../repositories/IUserRepository';
 import { AppError } from '@shared/error/AppError';
 import { inject, injectable } from 'tsyringe';
+import { IHashProvider } from '@shared/container/providers/HashProvider/IHashProvider';
 
 @injectable()
 export class CreateUser {
   constructor(
     @inject('UserRepository')
     private userRepository: IUserRepository,
+    @inject('HashProvider')
+    private hashProvider: IHashProvider,
   ) {}
 
   public async execute({
@@ -25,11 +28,12 @@ export class CreateUser {
     if (accessTypeId != 1) {
       accessTypeId = 1;
     }
+    const hashedPassword = await this.hashProvider.encrypt(password);
 
     const user = await this.userRepository.create({
       name,
       email,
-      password,
+      password: hashedPassword,
       accessTypeId,
     });
 
