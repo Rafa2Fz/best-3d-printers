@@ -3,5 +3,5 @@ export interface IUserDto {
   name: string;
   email: string;
   password: string;
-  accessTypeId?: number;
+  accessTypeId: number;
 }
