@@ -43,4 +43,15 @@ export class User {
       this.id = uuidv4();
     }
   }
+
+  getUser() {
+    const atributes = {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      accessType: this.accessType,
+    };
+
+    return atributes;
+  }
 }

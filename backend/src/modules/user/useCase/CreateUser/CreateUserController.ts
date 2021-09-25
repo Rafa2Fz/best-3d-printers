@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 
 import { CreateUser } from './CreateUser';
 
-export class CreateUserControl {
+export class CreateUserController {
   public async create(request: Request, response: Response) {
     const { name, email, password, accessTypeId } = request.body;
 
