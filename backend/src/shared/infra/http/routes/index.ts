@@ -1,3 +1,4 @@
+import { ensureAuthenticated } from '@modules/user/routes/middlewares/ensureAuthenticated';
 import { Router } from 'express';
 
 import { userRoutes } from '@modules/user/routes/user.routes';
