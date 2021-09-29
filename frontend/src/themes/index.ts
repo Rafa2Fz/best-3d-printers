@@ -20,7 +20,11 @@ const theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: {},
+      styleOverrides: {
+        '::-ms-reveal': {
+          display: 'none',
+        },
+      },
     },
     MuiLink: {
       styleOverrides: {},
