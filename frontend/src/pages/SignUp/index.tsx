@@ -10,13 +10,18 @@ import Button from '@mui/material/Button';
 import Hidden from '@mui/material/Hidden';
 import EmailIcon from '@mui/icons-material/Email';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import LockIcon from '@mui/icons-material/Lock';
+import IconButton from '@mui/material/IconButton';
+import LoginIcon from '@mui/icons-material/Login';
+import Link from '@mui/material/Link';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
+import { Link as RouterLink } from 'react-router-dom';
+
 import InputField from '../../components/InputField';
 import PasswordField from '../../components/PasswordField';
+
 const SignUp: React.FC = () => {
   const schema = yup.object({
     email: yup
@@ -28,6 +33,10 @@ const SignUp: React.FC = () => {
       .min(8, 'Password should be of minimum 8 characters length')
       .required('Password is required'),
     name: yup.string(),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Password must match')
+      .required('Password confirmation is required'),
   });
 
   const formik = useFormik({
@@ -86,8 +95,8 @@ const SignUp: React.FC = () => {
                 component="h1"
                 align="center"
               >
-                Entre e aproveite <br />
-                benefícios exclusivos!
+                Cadastre-se e receba <br />
+                notificações exclusivas!
               </Typography>
             </Box>
             <Grid item>
@@ -144,15 +153,14 @@ const SignUp: React.FC = () => {
                       />
 
                       <Box mt={2}>
-                        <InputField
-                          icon={LockIcon}
+                        <PasswordField
                           fullWidth
                           color="primary"
                           id="confirmPassword"
                           placeholder="*******"
                           name="confirmPassword"
                           label="Confirm Password"
-                          type="password"
+                          confirmation={true}
                           value={formik.values.confirmPassword}
                           onChange={formik.handleChange}
                           error={
@@ -178,6 +186,24 @@ const SignUp: React.FC = () => {
                     </Box>
                   </form>
                 </Box>
+              </Box>
+            </Grid>
+            <Grid
+              container
+              item
+              alignItems="center"
+              alignContent="center"
+              justifyContent="center"
+              mr={5}
+            >
+              <Link component={RouterLink} to="/">
+                <LoginIcon color="primary" />
+              </Link>
+
+              <Box sx={{ marginLeft: '4px' }}>
+                <Link component={RouterLink} to="/">
+                  Login
+                </Link>
               </Box>
             </Grid>
           </Grid>

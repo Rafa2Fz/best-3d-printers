@@ -15,10 +15,16 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import IconButton from '@mui/material/IconButton';
 
-type PasswordFieldProps = TextFieldProps & {};
+type PasswordFieldProps = TextFieldProps & {
+  confirmation?: boolean;
+};
 type DisplayForce = 'flex' | 'none';
 
-const PasswordField: React.FC<PasswordFieldProps> = ({ value, ...props }) => {
+const PasswordField: React.FC<PasswordFieldProps> = ({
+  confirmation = false,
+  value,
+  ...props
+}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [type, setType] = useState('password');
 
@@ -36,6 +42,9 @@ const PasswordField: React.FC<PasswordFieldProps> = ({ value, ...props }) => {
     if (value) {
       setDisplayForce('flex');
     } else {
+      setDisplayForce('none');
+    }
+    if (confirmation) {
       setDisplayForce('none');
     }
 

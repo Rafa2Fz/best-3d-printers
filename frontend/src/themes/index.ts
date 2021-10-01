@@ -27,7 +27,11 @@ const theme = createTheme({
       },
     },
     MuiLink: {
-      styleOverrides: {},
+      styleOverrides: {
+        root: {
+          textDecoration: 'none',
+        },
+      },
     },
   },
 });

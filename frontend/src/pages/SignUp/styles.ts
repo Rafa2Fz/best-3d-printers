@@ -1,6 +1,4 @@
-import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { flexbox } from '@mui/system';
 
 import SignUpBackground from '../../assets/signUpBackground.gif';
 
