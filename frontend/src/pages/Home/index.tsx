@@ -28,9 +28,11 @@ const Home: React.FC = () => {
           container
           sx={{ flexGrow: 1, flexDirection: { xs: 'column', md: 'row' } }}
         >
-          <Grid item xs={false} md={4} sx={{ display: { xs: 'false' } }}>
-            <Paper sx={{ width: '500px', height: '100px' }}>Bla</Paper>
-          </Grid>
+          <Hidden only={['xs', 'sm']}>
+            <Grid item xs={false} md={4} sx={{ display: { xs: 'false' } }}>
+              <Paper sx={{ width: '500px', height: '100px' }}>Bla</Paper>
+            </Grid>
+          </Hidden>
           <Grid item xs={12} md={8}>
             <Board />
           </Grid>

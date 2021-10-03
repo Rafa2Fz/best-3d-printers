@@ -29,8 +29,8 @@ const Board: React.FC = () => {
           </Grid>
 
           {Array.from(Array(24)).map((_, index) => (
-            <Grid item xs={12} sm={4} md={2} key={index}>
-              <Box m={1}>
+            <Grid item xs={12} sm={8} md={6} lg={4} key={index}>
+              <Box m={3}>
                 <Card>xs=2</Card>
               </Box>
             </Grid>

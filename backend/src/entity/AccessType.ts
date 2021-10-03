@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity('AccessType')
+@Entity('accessType')
 export class AccessType {
   @PrimaryColumn()
   public id: number;
